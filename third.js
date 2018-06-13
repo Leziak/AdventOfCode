@@ -10,10 +10,12 @@ const third = (arr) => {
     arr = arr.map(el=>el.split(' '))
     for(let i = 0;i < arr.length;i++) {
         for(let j = 0;j < arr[i].length;j++) {
-            if(arr[i][j] in obj){
-                obj[arr[i][j]]++
-            } else if(arr[i][j] !== ' ') {
-                obj[arr[i][j]] = 0
+            let el = arr[i][j].split('').sort((a,b)=>a.charCodeAt()-b.charCodeAt()).join('')
+            console.log(el)
+            if(el in obj){
+                obj[el]++
+            } else if(el !== ' ') {
+                obj[el] = 0
             }
         }
         if(Object.values(obj).every(el=>el===0)) count++
